@@ -1,10 +1,12 @@
-version: '3'
+version: '3.8'
+
 services:
-  vms-panel:
+  vm-panel:
     build: .
+    container_name: vm-panel
     privileged: true
     ports:
-      - "9090:9090"  # Cockpit Web UI
+      - "8080:8080"  # Map host port 8080 to container port 8080
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
       - /var/lib/libvirt:/var/lib/libvirt
