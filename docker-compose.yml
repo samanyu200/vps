@@ -1,0 +1,11 @@
+version: '3'
+services:
+  vms-panel:
+    build: .
+    privileged: true
+    ports:
+      - "9090:9090"  # Cockpit Web UI
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /var/lib/libvirt:/var/lib/libvirt
+    restart: unless-stopped
