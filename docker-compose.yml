@@ -4,10 +4,6 @@ services:
   vm-panel:
     build: .
     container_name: vm-panel
-    privileged: true
     ports:
-      - "8080:8080"  # Map host port 8080 to container port 8080
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-      - /var/lib/libvirt:/var/lib/libvirt
+      - "8080:8080"
     restart: unless-stopped
